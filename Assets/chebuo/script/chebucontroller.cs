@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class chebucontroller : MonoBehaviour
 {
@@ -18,8 +19,8 @@ public class chebucontroller : MonoBehaviour
     float ry;
     float r = 7;
 
-
-
+    [SerializeField] GameObject chebu;
+    [SerializeField] GameObject Canvas;
 
     float speed = 1f;
     public GameObject[] chebus;
@@ -49,6 +50,9 @@ public class chebucontroller : MonoBehaviour
         rad = angle * Mathf.Deg2Rad;
         rx = Mathf.Cos(rad)*r;
         ry = Mathf.Sin(rad)*r;
+        //
+        GameObject prefab = (GameObject)Instantiate(chebu);
+        prefab.transform.SetParent(Canvas.transform, false);
 
     }
 }
