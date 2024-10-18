@@ -19,22 +19,24 @@ public class chebucontroller : MonoBehaviour
     float ry;
     float r = 7;
 
-    [SerializeField] GameObject chebu;
-    [SerializeField] GameObject Canvas;
 
     float speed = 1f;
+    //int constant = 6;
     public GameObject[] chebus;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("wan");
     }
-
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        Debug.Log("kon");
+    }
     // Update is called once per frame
     void Update()
     {
         //カメラの中央の座標取得
-        screenCenter = new Vector3(Screen.width/2,Screen.height/2,Camera.main.nearClipPlane);
+        screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane);
         /*カメラ中央のワールド座標
         worldposition=Camera.main.ScreenToWorldPoint(screenCenter);
         middleposx = worldposition.x;
@@ -44,15 +46,11 @@ public class chebucontroller : MonoBehaviour
         mepos = this.transform.position;
         //中央に引き寄せる
         //transform.position = Vector3.Lerp(transform.position,worldposition,speed*Time.deltaTime);
-        transform.position = Vector3.Lerp(transform.position,screenCenter,speed*Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, screenCenter, speed * Time.deltaTime);
         //ランダムな位置を取得
-        angle = Random.Range(0,360);
+        angle = Random.Range(0, 360);
         rad = angle * Mathf.Deg2Rad;
-        rx = Mathf.Cos(rad)*r;
-        ry = Mathf.Sin(rad)*r;
-        //
-        GameObject prefab = (GameObject)Instantiate(chebu);
-        prefab.transform.SetParent(Canvas.transform, false);
-
+        rx = Mathf.Cos(rad) * r;
+        ry = Mathf.Sin(rad) * r;
     }
 }
