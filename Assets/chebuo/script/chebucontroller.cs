@@ -19,18 +19,25 @@ public class chebucontroller : MonoBehaviour
     float ry;
     float r = 7;
 
-
+    public GameObject chebus;
     float speed = 1f;
     //int constant = 6;
-    public GameObject[] chebus;
+    //public GameObject chebus;
     // Start is called before the first frame update
+
+
     void Start()
     {
-        Debug.Log("wan");
+        //Destroy(chebus);
     }
-    private void OnTriggerStay2D(Collider2D col)
+    public void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("kon");
+        Debug.Log("iti");
+        if (col.gameObject.CompareTag("tower"))
+        {
+            Debug.Log("ni");
+            Destroy(chebus);
+        }
     }
     // Update is called once per frame
     void Update()
