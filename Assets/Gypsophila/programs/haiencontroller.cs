@@ -10,11 +10,10 @@ public class haiencontroller : MonoBehaviour
     void Start()
     {
         gauge = GameObject.Find("ba-");
-        
     }
 
     // Update is called once per frame
-    public void IncreaseHP(string name)
+    public void IncreaseHP(string tagname)
     {
         if(name != "fruit")
         {
@@ -25,6 +24,4 @@ public class haiencontroller : MonoBehaviour
             gauge.GetComponent<Image>().fillAmount -= 0.15f;
         }
     }
-    //消える直前に肺炎コントローラーをタグの名前を引数に呼び出す。
-    //タグがフルーツじゃなかったら肺炎ポイントがたまるか、健康ポイントを減らすのでもいい。0.05ずつくらいでいいかな
 }
