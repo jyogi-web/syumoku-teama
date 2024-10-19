@@ -18,7 +18,7 @@ public class ImageInstantiate : MonoBehaviour
     float rad;
     float rx;
     float ry;
-    float r = 7;
+    float r = 4;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +40,7 @@ public class ImageInstantiate : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("ooo");
+            //Debug.Log("ooo");
             int chebuIndex =Random.Range(0, chebu.Length);
             prefab = Instantiate(chebu[chebuIndex],new Vector3(rx,ry,0f),Quaternion.identity);
             prefab.transform.SetParent(Canvas.transform, false);
