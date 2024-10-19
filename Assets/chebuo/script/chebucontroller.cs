@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +26,11 @@ public class chebucontroller : MonoBehaviour
     //public GameObject chebus;
     // Start is called before the first frame update
 
+    public void OnClick()
+    {
 
+        Destroy(chebus);
+    }
     void Start()
     {
         //Destroy(chebus);
