@@ -42,3 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: bosschebu
+    uniqueID: 997331299
+    locked: 0
