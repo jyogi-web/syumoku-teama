@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class ImageInstantiate : MonoBehaviour
@@ -8,7 +9,7 @@ public class ImageInstantiate : MonoBehaviour
     [SerializeField] GameObject Canvas;
     [SerializeField] GameObject prefab;
     float constant = 2f;
-
+    float time;
     Vector3 screenCenter;
     Vector3 worldposition;
     float middleposx;
@@ -19,6 +20,7 @@ public class ImageInstantiate : MonoBehaviour
     float rx;
     float ry;
     float r = 4;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +36,12 @@ public class ImageInstantiate : MonoBehaviour
         rad = angle * Mathf.Deg2Rad;
         rx = Mathf.Cos(rad) * r;
         ry = Mathf.Sin(rad) * r;
+        time+=Time.deltaTime;
     }
-    
+    void FixedUpdate()
+    {
+        constant = 3;
+    }
     IEnumerator ImageInstantiater()
     {
         while (true)
