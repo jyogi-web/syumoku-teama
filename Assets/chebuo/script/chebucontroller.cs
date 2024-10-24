@@ -19,31 +19,54 @@ public class chebucontroller : MonoBehaviour
     float rx;
     float ry;
     float r = 7;
-
+    GameObject gauge;
     public GameObject chebus;
-    float speed = 1f;
+    float speed = 1.5f;
+    Image image;
+    float MaxHP=1;
+    float HP;
+    float heal=0.05f;
+    float attack=0.05f;
+    int random;
     //int constant = 6;
     //public GameObject chebus;
     // Start is called before the first frame update
 
     public void OnClick()
-    {
-
+    {        
         Destroy(chebus);
     }
     void Start()
     {
-        //Destroy(chebus);
+        gauge = GameObject.Find("bar");
+        image = gauge.GetComponent<Image>();
+        speed = (float)Random.Range(1f,3f);
+        Debug.Log(speed);
+        random = Random.Range(0, 2);
+        HP=0;
     }
     public void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("iti");
         if (col.gameObject.CompareTag("tower"))
-        {
-            Debug.Log("ni");
+        {       
             Destroy(chebus);
+            Increasehp("chebu");
+            //Increasehp("fruit");
         }
     }
+    public void Increasehp(string name)
+    {
+        //if (!CompareTag(name)
+        {
+            HP -= heal;
+        }
+        if (CompareTag(name))
+        {
+            HP+= attack;
+            Debug.Log("yeah");
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -57,8 +80,16 @@ public class chebucontroller : MonoBehaviour
         //自分自身の座標取得
         mepos = this.transform.position;
         //中央に引き寄せる
-        //transform.position = Vector3.Lerp(transform.position,worldposition,speed*Time.deltaTime);
-        transform.position = Vector3.Lerp(transform.position, screenCenter, speed * Time.deltaTime);
+        image.fillAmount = HP/MaxHP;
+        Debug.Log(HP);
+        if (random==1)
+        {
+            transform.position = Vector3.Lerp(transform.position, screenCenter, speed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = Vector3.Slerp(transform.position, screenCenter, speed * Time.deltaTime);
+        }
         //ランダムな位置を取得
         angle = Random.Range(0, 360);
         rad = angle * Mathf.Deg2Rad;
