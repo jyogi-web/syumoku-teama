@@ -6,6 +6,7 @@ TagManager:
   tags:
   - tower
   - chebu
+  - fruit
   layers:
   - Default
   - TransparentFX
