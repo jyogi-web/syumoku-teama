@@ -23,10 +23,10 @@ public class chebucontroller : MonoBehaviour
     public GameObject chebus;
     float speed = 1.5f;
     Image image;
-    float MaxHP=1;
-    float HP;
-    float heal=0.05f;
-    float attack=0.05f;
+    float MaxHP=200;
+    private static float HP=-5f;
+    float heal=5f;
+    float attack=5f;
     int random;
     //int constant = 6;
     //public GameObject chebus;
@@ -36,31 +36,29 @@ public class chebucontroller : MonoBehaviour
     {        
         Destroy(chebus);
     }
-    void Start()
+    void Awake()
     {
         gauge = GameObject.Find("bar");
         image = gauge.GetComponent<Image>();
-        speed = (float)Random.Range(1f,3f);
-        Debug.Log(speed);
+        speed = (float)Random.Range(1f,2.5f);
         random = Random.Range(0, 2);
-        HP=0;
     }
     public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("tower"))
         {       
             Destroy(chebus);
-            Increasehp("chebu");
-            //Increasehp("fruit");
+            Increasehp();
         }
+        image.fillAmount=HP/MaxHP;
     }
-    public void Increasehp(string name)
+    public void Increasehp()
     {
-        //if (!CompareTag(name)
+        if (CompareTag("fruit"))
         {
             HP -= heal;
         }
-        if (CompareTag(name))
+        if (CompareTag("chebu"))
         {
             HP+= attack;
             Debug.Log("yeah");
