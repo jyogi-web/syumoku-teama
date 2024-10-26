@@ -18,6 +18,7 @@ public class StartScene : MonoBehaviour
     // Update is called once per frame
     void osu()
     {
+        chebucontroller.HP =0;
         SceneManager.LoadScene("chebuo");
 
     }

@@ -24,7 +24,7 @@ public class chebucontroller : MonoBehaviour
     public float speed = 1f;
     Image image;
     float MaxHP=100;
-    private static float HP=0f;
+    public static float HP=0f;
     public float heal=5f;
     public float attack=5f;
     int random;
@@ -34,22 +34,28 @@ public class chebucontroller : MonoBehaviour
     int check1;
     int check2;
     ImageInstantiate imageinstantiate;
+    AudioSource audiosource;
+    public AudioClip se1;
     public GameObject chebuspawner;
     // Start is called before the first frame update
 
-    public void OnClick()
-    {        
-        Destroy(chebus);
-        highscore += score;
-        Debug.Log(score);
-    }
+    
     void Start()
     {
+        audiosource=this.GetComponent<AudioSource>();
         gauge = GameObject.Find("bar");
         image = gauge.GetComponent<Image>();
         imageinstantiate = chebuspawner.GetComponent<ImageInstantiate>();
         speed = (float)Random.Range(speed,speed+1.5f);
         random = Random.Range(0, 2);
+    }
+
+    public void OnClick()
+    {
+        audiosource.PlayOneShot(se1);
+        Destroy(chebus);
+        highscore += score;
+        Debug.Log(score);
     }
     public void OnTriggerEnter2D(Collider2D col)
     {

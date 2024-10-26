@@ -20,6 +20,7 @@ public class SceneController : MonoBehaviour
     }
     public void LoadButton()
     {
+        chebucontroller.HP = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     // Update is called once per frame
