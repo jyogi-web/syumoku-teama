@@ -24,7 +24,7 @@ public class timer : MonoBehaviour
     {
         bosstime += Time.deltaTime;
         int remaining = bosstimeLimit - (int)bosstime;
-        bossTimerText.text = $"ÇÃÇ±ÇËÅF{remaining.ToString("D3")}ïb";
+        bossTimerText.text = $"„ÅÆ„Åì„ÇäÔºö{remaining.ToString("D3")}Áßí";
         if(remaining <= 0)
     {
             bossTimerText.text = "";
@@ -42,7 +42,7 @@ public class timer : MonoBehaviour
             if (v != 0)
             {
                 KeyText.text = v.ToString();
-                yield return new WaitForSeconds(1); //1ïbë“Ç¬
+                yield return new WaitForSeconds(1); //1ÁßíÂæÖ„Å§
             }
             else
             {
@@ -54,6 +54,7 @@ public class timer : MonoBehaviour
                 bosschebu.ugoke();
             }
         }
+
         yield break;
     }
 
