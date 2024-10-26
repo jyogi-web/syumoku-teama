@@ -35,7 +35,7 @@ public class timer : MonoBehaviour
     IEnumerator CountDown()
     {
         yield return new WaitForSeconds(1);
-
+        //セリフを""に書き換える
         for (int v = 3; v >= 0; v--)
         {
             count.SetActive(true);

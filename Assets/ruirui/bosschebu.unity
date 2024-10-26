@@ -249,8 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texts:
-  - "\u3042\u306E\u796D\u58C7\u3092\u58CA\u3057\u305F\u3093\u304B\u3000\u3000                 
-    \u79C1\u304C\u76F8\u624B\u3060"
+  - "\u3042\u306E\u796D\u58C7\u3092\u58CA\u3057\u305F\u3093\u304B\n\u79C1\u304C\u76F8\u624B\u3060"
 --- !u!114 &129773046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1462,6 +1461,7 @@ MonoBehaviour:
   bossTimerText: {fileID: 1470026286}
   count: {fileID: 1256606746}
   KeyText: {fileID: 1693195892}
+  delete: 0
 --- !u!1 &1161885951
 GameObject:
   m_ObjectHideFlags: 0

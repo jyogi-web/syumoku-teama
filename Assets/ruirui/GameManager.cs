@@ -13,9 +13,12 @@ public class GameManager : MonoBehaviour
     bool click;//クリック判定
     bool textStop; //テキスト表示を始めるか
     bool isSelifuEnd = true;//セリフが終わった後に処理をしたかどうか
+    float count1second = 0; //1秒間数える
+    public GameObject serifu;
+    public Text serifutext;
     void Start()
     {
-
+        serifutext= GetComponent<Text>();
     }
     void Update()
     {
@@ -41,18 +44,23 @@ public class GameManager : MonoBehaviour
                         else //もしtexts[]が最後のセリフになったら
                         {
                             if (isSelifuEnd) {
+                                
                                 GameObject startcount = GameObject.Find("Startcount");
                                 timer timer = startcount.GetComponent<timer>();
                                 timer.StartCoroutine("CountDown");
-                                if (timer.delete == true)
-                                {
-                                    displayText = ""; //表示させる文字列も消す
-                                    textCharNumber = 0; //文字の番号を最初にする
-                                    textStop = true; //セリフ表示を止める
-                                }
+                                
                                 isSelifuEnd = false;
                             }
-                        }
+                            count1second += Time.deltaTime;
+                        Debug.Log(count1second);
+                            if (count1second >= 0.15)
+                            {
+                                serifutext.enabled = false;
+                                //displayText = ""; //表示させる文字列も消す
+                                textCharNumber = 0; //文字の番号を最初にする
+                                textStop = true; //セリフ表示を止める
+                            }
+                    }
                     }
 
                     this.GetComponent<Text>().text = displayText;//画面上にdisplayTextを表示
