@@ -287,13 +287,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 100670125}
+  - component: {fileID: 100670126}
   m_Layer: 0
   m_Name: ChebuSpowner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &100670125
 Transform:
   m_ObjectHideFlags: 0
@@ -309,6 +310,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &100670126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100670123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43764a0909af9b4e94aa773d7ff670c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chebu:
+  - {fileID: 6825660654485814008, guid: 0ae27ad5ac3627e45af6a005bfaec44f, type: 3}
+  - {fileID: 8204214453430053816, guid: 73abe898abb66e04490659cc0fff7fdd, type: 3}
+  - {fileID: 8204214453430053816, guid: 3e6ec2c1291d3804c914779b7ece8e63, type: 3}
+  - {fileID: 8204214453430053816, guid: 1f924734fc4923a438210eb78dcfdf18, type: 3}
+  - {fileID: 8204214453430053816, guid: ca47676e4a4349b42963eb89624e8263, type: 3}
+  - {fileID: 8204214453430053816, guid: 93c96ff5cc03e704d83e5e3dc2a6c247, type: 3}
+  - {fileID: 8204214453430053816, guid: 178cf9236c4f86047a4a339616d4c406, type: 3}
+  Canvas: {fileID: 1632593029}
+  prefab: {fileID: 7739015788221510509, guid: b7fedded8c41d8c469367a18f2a7fc68, type: 3}
+  chebutower: {fileID: 832019760}
+  Timer: {fileID: 1000792366}
+  countdown: {fileID: 1159832154}
+  Finishscreen: {fileID: 81464565}
+  gauge: {fileID: 892232075}
 --- !u!1 &722276396
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,7 +779,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1000792365}
   - component: {fileID: 1000792364}
-  - component: {fileID: 1000792363}
   - component: {fileID: 1000792366}
   - component: {fileID: 1000792367}
   m_Layer: 0
@@ -761,31 +788,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1000792363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000792362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c43764a0909af9b4e94aa773d7ff670c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chebu:
-  - {fileID: 6825660654485814008, guid: 0ae27ad5ac3627e45af6a005bfaec44f, type: 3}
-  - {fileID: 8204214453430053816, guid: 73abe898abb66e04490659cc0fff7fdd, type: 3}
-  - {fileID: 8204214453430053816, guid: 3e6ec2c1291d3804c914779b7ece8e63, type: 3}
-  - {fileID: 8204214453430053816, guid: 1f924734fc4923a438210eb78dcfdf18, type: 3}
-  - {fileID: 8204214453430053816, guid: ca47676e4a4349b42963eb89624e8263, type: 3}
-  - {fileID: 8204214453430053816, guid: 93c96ff5cc03e704d83e5e3dc2a6c247, type: 3}
-  - {fileID: 8204214453430053816, guid: 178cf9236c4f86047a4a339616d4c406, type: 3}
-  Canvas: {fileID: 1632593029}
-  prefab: {fileID: 7739015788221510509, guid: b7fedded8c41d8c469367a18f2a7fc68, type: 3}
-  countdown: {fileID: 1159832154}
-  Finishscreen: {fileID: 81464565}
-  gauge: {fileID: 892232075}
 --- !u!212 &1000792364
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -867,8 +869,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeLimit: 30
   timerText: {fileID: 1411383635}
+  remaining: 0
   kaunto: {fileID: 1632593029}
   KeyText: {fileID: 1159832157}
+  ClearScene: {fileID: 1993764201}
   isGame: 0
 --- !u!114 &1000792367
 MonoBehaviour:
@@ -1134,7 +1138,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1184,7 +1188,7 @@ GameObject:
   - component: {fileID: 1434134539}
   - component: {fileID: 1434134538}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1267,7 +1271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1276,18 +1280,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
+    m_FontSize: 45
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 45
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: NEXT STAGE
 --- !u!222 &1558197507
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1456,7 +1460,7 @@ Canvas:
   m_GameObject: {fileID: 1632593029}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1628639531}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1601,8 +1605,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 800, y: 100}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1973115138
 MonoBehaviour:
@@ -1685,7 +1689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3189773, g: 0.28230673, b: 0.76729554, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1801,12 +1805,12 @@ GameObject:
   - component: {fileID: 1993764204}
   - component: {fileID: 1993764203}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: GameClearscreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1993764202
 RectTransform:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class chebucontroller : MonoBehaviour
 {
     Vector3 screenCenter;
-    Vector3 worldposition;
+    Vector3 worldCenter;
     float middleposx;
     float middleposy;
 
@@ -18,7 +18,7 @@ public class chebucontroller : MonoBehaviour
     float rad;
     float rx;
     float ry;
-    float r = 7;
+    float r = 3;
     GameObject gauge;
     public GameObject chebus;
     float speed = 1.5f;
@@ -70,11 +70,11 @@ public class chebucontroller : MonoBehaviour
     {
         //カメラの中央の座標取得
         screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane);
-        /*カメラ中央のワールド座標
-        worldposition=Camera.main.ScreenToWorldPoint(screenCenter);
-        middleposx = worldposition.x;
-        middleposy = worldposition.y;
-        */
+        /*カメラ中央のワールド座標*/
+        worldCenter=Camera.main.ScreenToWorldPoint(screenCenter);
+        middleposx = worldCenter.x;
+        middleposy = worldCenter.y;
+        
         //自分自身の座標取得
         mepos = this.transform.position;
         //中央に引き寄せる

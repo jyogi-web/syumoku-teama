@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class time : MonoBehaviour
 {
-    [SerializeField] int timeLimit=30;
+    [SerializeField]public int timeLimit=30;
     [SerializeField] Text timerText;
     float timer;
+    public int remaining;
     bool jouken = false;
     [SerializeField] GameObject kaunto;//テキストをくっつけているpanelをいれて
     [SerializeField] Text KeyText;//テキストをいれて
@@ -16,18 +17,22 @@ public class time : MonoBehaviour
     //private AudioClip se1;
     //private AudioClip se2;
     Text text;
+    public GameObject ClearScene;
+    [SerializeField] GameObject chebuspawner;
     public bool isGame = false;
     void Start()
     {
+
         text=KeyText.GetComponent<Text>();
         StartCoroutine("CountDown");
+        ClearScene.SetActive(false);
     }
     void Update()
     {
         if (jouken == true)
         {
             timer += Time.deltaTime;
-            int remaining = timeLimit - (int)timer;
+            remaining = timeLimit - (int)timer;
             if (remaining >= 10)
             {
                 timerText.text = $"のこり:{remaining.ToString("D2")}秒";
@@ -39,7 +44,8 @@ public class time : MonoBehaviour
             if (remaining <= 0)
             {
                 timerText.text = "";
-
+                ClearScene.SetActive(true);
+                chebuspawner.SetActive(false);
             }
         }
        
