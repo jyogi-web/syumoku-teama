@@ -13,10 +13,12 @@ public class MainManager : MonoBehaviour
     [SerializeField] Text timerText;
     float time;
     int remaining = 999;
+    timer timer;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        GameObject Startcount = GameObject.Find("Startcount");
+        timer = Startcount.GetComponent<timer>();
     }
 
     // Update is called once per frame
@@ -24,9 +26,12 @@ public class MainManager : MonoBehaviour
     {
         if(remaining > 0)
         {
-            time += Time.deltaTime;
-            remaining = timeLimit - (int)time;
-            timerText.text = $"ÇÃÇ±ÇËÅF{remaining.ToString("D3")}ïb";
+            if (timer.kaisi == true)
+            {
+                time += Time.deltaTime;
+                remaining = timeLimit - (int)time;
+                timerText.text = $"ÇÃÇ±ÇËÅF{remaining.ToString("D3")}ïb";
+            }
         }
         else if (remaining <= 0) 
         {

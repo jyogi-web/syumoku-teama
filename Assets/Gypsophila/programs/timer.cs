@@ -12,8 +12,10 @@ public class timer : MonoBehaviour
     [SerializeField] Text bossTimerText;
     [SerializeField] GameObject count;
     [SerializeField] Text KeyText;
+    [SerializeField] GameObject healthgauge;
     float bosstime;
     public bool delete = false;
+    public bool kaisi = false;
     GameManager gamemanager;
     bosschebu bosschebu;
     void Start()
@@ -22,13 +24,7 @@ public class timer : MonoBehaviour
     }
     void Update()
     {
-        bosstime += Time.deltaTime;
-        int remaining = bosstimeLimit - (int)bosstime;
-        bossTimerText.text = $"のこり：{remaining.ToString("D3")}秒";
-        if(remaining <= 0)
-    {
-            bossTimerText.text = "";
-        }
+
     }
   
 
@@ -47,9 +43,13 @@ public class timer : MonoBehaviour
             else
             {
                 KeyText.text = ("START").ToString();
+                healthgauge.SetActive(true);
                 yield return new WaitForSeconds(2);
+                kaisi = true;
                 count.SetActive(false);
                 GameObject chebu = GameObject.Find("Chebu");
+                Animator animator = chebu.GetComponent<Animator>();
+                animator.enabled = false;
                 bosschebu = chebu.GetComponent<bosschebu>();
                 bosschebu.ugoke();
             }
