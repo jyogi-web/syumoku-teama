@@ -24,9 +24,9 @@ public class chebucontroller : MonoBehaviour
     float speed = 1.5f;
     Image image;
     float MaxHP=200;
-    private static float HP=-5f;
-    float heal=5f;
-    float attack=5f;
+    private static float HP=0f;
+    public float heal=5f;
+    public float attack=5f;
     int random;
     //int constant = 6;
     //public GameObject chebus;
@@ -40,6 +40,7 @@ public class chebucontroller : MonoBehaviour
     {
         gauge = GameObject.Find("bar");
         image = gauge.GetComponent<Image>();
+
         speed = (float)Random.Range(1f,2.5f);
         random = Random.Range(0, 2);
     }
@@ -61,11 +62,9 @@ public class chebucontroller : MonoBehaviour
         if (CompareTag("chebu"))
         {
             HP+= attack;
-          
         }
         image.fillAmount = HP / MaxHP;
     }
-
     // Update is called once per frame
     void Update()
     {
