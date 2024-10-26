@@ -92,9 +92,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chebus: {fileID: 8204214453430053816}
-  speed: 1.5
+  speed: 2
   heal: 5
-  attack: 5
+  attack: 18
+  chebuspawner: {fileID: 5793296100382957745, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
 --- !u!61 &614991098976912962
 BoxCollider2D:
   m_ObjectHideFlags: 0

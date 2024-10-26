@@ -30,6 +30,13 @@ public class chebucontroller : MonoBehaviour
     int random;
     public static int highscore;
     public static int score;
+    public bool bosschange = false;
+    int check1;
+    int check2;
+    ImageInstantiate imageinstantiate;
+    public GameObject chebuspawner;
+    int chebuhit;
+    int chebuin;
     //int constant = 6;
     //public GameObject chebus;
     // Start is called before the first frame update
@@ -38,12 +45,14 @@ public class chebucontroller : MonoBehaviour
     {        
         Destroy(chebus);
         highscore += score;
+        chebuhit++;
+        Debug.Log(score);
     }
-    void Awake()
+    void Start()
     {
         gauge = GameObject.Find("bar");
         image = gauge.GetComponent<Image>();
-
+        imageinstantiate = chebuspawner.GetComponent<ImageInstantiate>();
         speed = (float)Random.Range(speed,speed+1.5f);
         random = Random.Range(0, 2);
     }
@@ -51,7 +60,10 @@ public class chebucontroller : MonoBehaviour
     {
         if (col.gameObject.CompareTag("tower"))
         {       
+
             Destroy(chebus);
+            chebuin++;
+            imageinstantiate.chebucounter--;
             Increasehp();
         }
         image.fillAmount=HP/MaxHP;
@@ -82,7 +94,7 @@ public class chebucontroller : MonoBehaviour
         mepos = this.transform.position;
         //中央に引き寄せる
         image.fillAmount = HP/MaxHP;
-        Debug.Log(HP);
+        //Debug.Log(HP);
         if (random==1)
         {
             transform.position = Vector3.Lerp(transform.position, screenCenter, speed * Time.deltaTime);
@@ -96,5 +108,21 @@ public class chebucontroller : MonoBehaviour
         rad = angle * Mathf.Deg2Rad;
         rx = Mathf.Cos(rad) * r;
         ry = Mathf.Sin(rad) * r;
+        
+        check1=imageinstantiate.chebuken - chebuhit;
+        check2=chebuhit + imageinstantiate.chebucounter;
+        if(check1==check2/*&&imageinstantiate.chebucheck>=1*/)
+        {
+            bosschange=true;
+            Debug.Log("fgrr");
+        }
+        else
+        {
+            Debug.Log("kawaran");
+        }
+        if (bosschange)
+        {
+            Debug.Log("kawaru");
+        }
     }
 }
