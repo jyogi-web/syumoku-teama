@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement; //ƒV[ƒ“Ø‚è‘Ö‚¦
 
 public class StartScene : MonoBehaviour
 {
+    public Button button;
     // Start is called before the first frame update
     void Start()
     {
-        this.GetComponent<Button>().onClick.AddListener(osu);
+        button = this.GetComponent<Button>();
+        button.onClick.AddListener(osu);
     }
 
     // Update is called once per frame
