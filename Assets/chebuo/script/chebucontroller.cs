@@ -35,8 +35,7 @@ public class chebucontroller : MonoBehaviour
     int check2;
     ImageInstantiate imageinstantiate;
     public GameObject chebuspawner;
-    int chebuhit;
-    int chebuin;
+    public GameObject chebutower;
     //int constant = 6;
     //public GameObject chebus;
     // Start is called before the first frame update
@@ -45,7 +44,6 @@ public class chebucontroller : MonoBehaviour
     {        
         Destroy(chebus);
         highscore += score;
-        chebuhit++;
         Debug.Log(score);
     }
     void Start()
@@ -59,11 +57,8 @@ public class chebucontroller : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("tower"))
-        {       
-
+        {
             Destroy(chebus);
-            chebuin++;
-            imageinstantiate.chebucounter--;
             Increasehp();
         }
         image.fillAmount=HP/MaxHP;
@@ -77,6 +72,10 @@ public class chebucontroller : MonoBehaviour
         if (CompareTag("chebu"))
         {
             HP+= attack;
+        }
+        if (CompareTag("chebuken"))
+        {
+            HP += attack;
         }
         image.fillAmount = HP / MaxHP;
     }
@@ -108,21 +107,5 @@ public class chebucontroller : MonoBehaviour
         rad = angle * Mathf.Deg2Rad;
         rx = Mathf.Cos(rad) * r;
         ry = Mathf.Sin(rad) * r;
-        
-        check1=imageinstantiate.chebuken - chebuhit;
-        check2=chebuhit + imageinstantiate.chebucounter;
-        if(check1==check2/*&&imageinstantiate.chebucheck>=1*/)
-        {
-            bosschange=true;
-            Debug.Log("fgrr");
-        }
-        else
-        {
-            Debug.Log("kawaran");
-        }
-        if (bosschange)
-        {
-            Debug.Log("kawaru");
-        }
     }
 }

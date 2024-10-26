@@ -509,6 +509,7 @@ GameObject:
   - component: {fileID: 832019762}
   - component: {fileID: 832019764}
   - component: {fileID: 832019765}
+  - component: {fileID: 832019766}
   m_Layer: 5
   m_Name: chebutower
   m_TagString: tower
@@ -645,6 +646,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &832019766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832019760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bd4aad482a7364eba7f9ca9851e4fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chebuspawner: {fileID: 100670123}
 --- !u!1 &892232075
 GameObject:
   m_ObjectHideFlags: 0

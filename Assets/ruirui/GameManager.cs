@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
                                 isSelifuEnd = false;
                             }
                             count1second += Time.deltaTime;
-                        Debug.Log(count1second);
+                            Debug.Log(count1second);
                             if (count1second >= 0.15)
                             {
                                 serifutext.enabled = false;
