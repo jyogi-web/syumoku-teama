@@ -29,7 +29,7 @@ public class chebucontroller : MonoBehaviour
     public float attack=5f;
     int random;
     public static int highscore;
-    public int score;
+    public static int score;
     //int constant = 6;
     //public GameObject chebus;
     // Start is called before the first frame update
