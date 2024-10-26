@@ -9,7 +9,7 @@ public class bosschebu : MonoBehaviour
     public float speedy = 10;
 
     // Start is called before the first frame update
-    void Start()
+    public void ugoke()
     {
         myRigidBody = this.gameObject.GetComponent<Rigidbody2D>();
         Vector2 force = new Vector2(speedx, speedy);

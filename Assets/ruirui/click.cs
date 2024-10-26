@@ -26,10 +26,6 @@ public class click : MonoBehaviour
     {
         GameObject hp = GameObject.Find("HealthGauge");
         HealthGauge hpgauge = hp.GetComponent<HealthGauge>();
-        if(hpgauge.healthImage.fillAmount != 0)
-        {
-            hpgauge.TakeDamage(debugDamageRate);
-        }
-
+        hpgauge.TakeDamage(debugDamageRate);
     }
 }
