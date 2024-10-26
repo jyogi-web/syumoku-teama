@@ -14,6 +14,10 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene("bosschebu");
     }
+    public void TitileScene()
+    {
+        SceneManager.LoadScene("titlescene");
+    }
     // Update is called once per frame
     void Update()
     {
