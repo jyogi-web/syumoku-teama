@@ -25,21 +25,24 @@ public class ImageInstantiate : MonoBehaviour
     float rx;
     float ry;
     float r = 4;
-    int chebucount = 0;
+    public int chebucount = 0;
     int timetime;
     public time Timer;
     public GameObject countdown;
     [SerializeField] GameObject Finishscreen;
     [SerializeField] GameObject gauge;
+    public static int chebuken = 0;
     Image image;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         //countdown = GameObject.Find("countdown");
         Timer = countdown.GetComponent<time>();
         image = gauge.GetComponent<Image>();
         StartCoroutine("ImageInstantiater");
         Finishscreen.SetActive(false);
+        chebucount = 0;
+        chebuken=0;
     }
     // Update is called once per frame
     void Update()
@@ -51,12 +54,13 @@ public class ImageInstantiate : MonoBehaviour
         rad = angle * Mathf.Deg2Rad;  //ラジアンにする
         rx = Mathf.Cos(rad) * r;      //ラジアンをCOSにする
         ry = Mathf.Sin(rad) * r;      //ラジアンをSINにする
-        time+=Time.deltaTime;         //
+        time += Time.deltaTime;         //
+
     }
     void FixedUpdate()
     {
 
-        constant = 4-(int)chebucount/30/5;
+        constant = 4 - (int)chebucount / 3;
         if (image.fillAmount == 1)
         {
             constant = 0;
@@ -73,6 +77,15 @@ public class ImageInstantiate : MonoBehaviour
             prefab = Instantiate(chebu[chebuIndex], new Vector3(rx, ry, 0f), Quaternion.identity);
             prefab.transform.SetParent(Canvas.transform, false);
             prefab.transform.SetParent(chebutower.transform, false);
+/*            if (chebuIndex != 4)
+            {
+                chebucounter++;
+                chebucheck++;
+            }*/
+            if (chebuIndex == 4)
+            {
+                chebuken++;
+            }
             yield return new WaitForSeconds(constant);
             chebucount++;
         }

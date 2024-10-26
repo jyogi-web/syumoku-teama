@@ -30,6 +30,12 @@ public class chebucontroller : MonoBehaviour
     int random;
     public static int highscore;
     public static int score;
+    public bool bosschange = false;
+    int check1;
+    int check2;
+    ImageInstantiate imageinstantiate;
+    public GameObject chebuspawner;
+    public GameObject chebutower;
     //int constant = 6;
     //public GameObject chebus;
     // Start is called before the first frame update
@@ -38,19 +44,20 @@ public class chebucontroller : MonoBehaviour
     {        
         Destroy(chebus);
         highscore += score;
+        Debug.Log(score);
     }
-    void Awake()
+    void Start()
     {
         gauge = GameObject.Find("bar");
         image = gauge.GetComponent<Image>();
-
+        imageinstantiate = chebuspawner.GetComponent<ImageInstantiate>();
         speed = (float)Random.Range(speed,speed+1.5f);
         random = Random.Range(0, 2);
     }
     public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("tower"))
-        {       
+        {
             Destroy(chebus);
             Increasehp();
         }
@@ -65,6 +72,10 @@ public class chebucontroller : MonoBehaviour
         if (CompareTag("chebu"))
         {
             HP+= attack;
+        }
+        if (CompareTag("chebuken"))
+        {
+            HP += attack;
         }
         image.fillAmount = HP / MaxHP;
     }
@@ -82,7 +93,7 @@ public class chebucontroller : MonoBehaviour
         mepos = this.transform.position;
         //中央に引き寄せる
         image.fillAmount = HP/MaxHP;
-        Debug.Log(HP);
+        //Debug.Log(HP);
         if (random==1)
         {
             transform.position = Vector3.Lerp(transform.position, screenCenter, speed * Time.deltaTime);

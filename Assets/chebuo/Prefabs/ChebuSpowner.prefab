@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5793296100382957745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3581403729783481925}
+  - component: {fileID: 7564575722198720204}
+  m_Layer: 0
+  m_Name: ChebuSpowner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3581403729783481925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5793296100382957745}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7564575722198720204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5793296100382957745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43764a0909af9b4e94aa773d7ff670c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chebu:
+  - {fileID: 6825660654485814008, guid: 0ae27ad5ac3627e45af6a005bfaec44f, type: 3}
+  - {fileID: 8204214453430053816, guid: 73abe898abb66e04490659cc0fff7fdd, type: 3}
+  - {fileID: 8204214453430053816, guid: 3e6ec2c1291d3804c914779b7ece8e63, type: 3}
+  - {fileID: 8204214453430053816, guid: 1f924734fc4923a438210eb78dcfdf18, type: 3}
+  - {fileID: 8204214453430053816, guid: ca47676e4a4349b42963eb89624e8263, type: 3}
+  - {fileID: 8204214453430053816, guid: 93c96ff5cc03e704d83e5e3dc2a6c247, type: 3}
+  - {fileID: 8204214453430053816, guid: 178cf9236c4f86047a4a339616d4c406, type: 3}
+  - {fileID: 8204214453430053816, guid: 51f5810da374b9b4b998914ff69928ca, type: 3}
+  Canvas: {fileID: 0}
+  prefab: {fileID: 7739015788221510509, guid: b7fedded8c41d8c469367a18f2a7fc68, type: 3}
+  chebutower: {fileID: 0}
+  Timer: {fileID: 0}
+  countdown: {fileID: 0}
+  Finishscreen: {fileID: 0}
+  gauge: {fileID: 0}
+  chebucounter: 0

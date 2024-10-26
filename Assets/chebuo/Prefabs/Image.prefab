@@ -92,8 +92,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chebus: {fileID: 6825660654485814008}
+  speed: 1
   heal: 5
   attack: 10
+  chebuspawner: {fileID: 5793296100382957745, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
 --- !u!50 &-1643140995841638719
 Rigidbody2D:
   serializedVersion: 4
