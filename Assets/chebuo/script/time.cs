@@ -13,7 +13,7 @@ public class time : MonoBehaviour
     bool jouken = false;
     [SerializeField] GameObject kaunto;//テキストをくっつけているpanelをいれて
     [SerializeField] Text KeyText;//テキストをいれて
-    //private AudioSource audioSource;
+    private AudioSource audioSource;
     //private AudioClip se1;
     //private AudioClip se2;
     Text text;
@@ -22,8 +22,8 @@ public class time : MonoBehaviour
     public bool isGame = false;
     void Start()
     {
-
-        text=KeyText.GetComponent<Text>();
+        audioSource = gameObject.GetComponent<AudioSource>();　　//音源ができたらいれて
+        text =KeyText.GetComponent<Text>();
         StartCoroutine("CountDown");
         ClearScene.SetActive(false);
     }
@@ -52,15 +52,14 @@ public class time : MonoBehaviour
     }
     IEnumerator CountDown()
     {
+        audioSource.Play();
         for (int v = 3; v >= 0; v--)
         {
-            kaunto.SetActive(true);
             
+            kaunto.SetActive(true);           
             if (v != 0)
             {
-                KeyText.text = "--" + v.ToString()+"--" ;
-                //audioSource = gameObject.GetComponent<AudioSource>();　　音源ができたらいれて
-                //audioSource.PlayOneShot(se4);
+                KeyText.text = "--" + v.ToString()+"--" ;                
                 yield return new WaitForSeconds(1);//1秒待つ
             }
             else

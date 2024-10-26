@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -7297091268481969292}
   m_Layer: 5
   m_Name: Image 5
-  m_TagString: chebu
+  m_TagString: fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9cbbbb2f00921eb45b3faad0908cae1c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e84ac6241342acb4d8f86f55ea89aaab, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
