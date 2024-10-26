@@ -21,13 +21,15 @@ public class chebucontroller : MonoBehaviour
     float r = 3;
     GameObject gauge;
     public GameObject chebus;
-    float speed = 1.5f;
+    public float speed = 1f;
     Image image;
-    float MaxHP=200;
+    float MaxHP=100;
     private static float HP=0f;
     public float heal=5f;
     public float attack=5f;
     int random;
+    public static int highscore;
+    public int score;
     //int constant = 6;
     //public GameObject chebus;
     // Start is called before the first frame update
@@ -35,13 +37,14 @@ public class chebucontroller : MonoBehaviour
     public void OnClick()
     {        
         Destroy(chebus);
+        highscore += score;
     }
     void Awake()
     {
         gauge = GameObject.Find("bar");
         image = gauge.GetComponent<Image>();
 
-        speed = (float)Random.Range(1f,2.5f);
+        speed = (float)Random.Range(speed,speed+1.5f);
         random = Random.Range(0, 2);
     }
     public void OnTriggerEnter2D(Collider2D col)
@@ -70,11 +73,11 @@ public class chebucontroller : MonoBehaviour
     {
         //カメラの中央の座標取得
         screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane);
-        /*カメラ中央のワールド座標*/
+        /*カメラ中央のワールド座標
         worldCenter=Camera.main.ScreenToWorldPoint(screenCenter);
         middleposx = worldCenter.x;
         middleposy = worldCenter.y;
-        
+        */
         //自分自身の座標取得
         mepos = this.transform.position;
         //中央に引き寄せる
