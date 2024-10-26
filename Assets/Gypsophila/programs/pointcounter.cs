@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class pointmanager : MonoBehaviour
 {
-    int[] chebucount = new int[9];
-
+    public int[] chebucount = new int[9];
+    //スコアの計算タグによって各チェブのスコアを格納するタイマーが０になったらこのスコアを利用して判定しておくれ
     public void counter(string tagname)
     {
         switch (tagname)
@@ -38,6 +38,9 @@ public class pointmanager : MonoBehaviour
                 break;
             case "goruchebu":
                 chebucount[8] += 20;
+                break;
+            default:
+                chebucount[9] -= 3;
                 break;
         }
     }
