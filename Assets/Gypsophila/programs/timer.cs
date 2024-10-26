@@ -10,19 +10,28 @@ public class timer : MonoBehaviour
     [SerializeField] GameObject count;
     [SerializeField] Text KeyText;
     [SerializeField] GameObject healthgauge;
+    public GameObject boss;
     public Sprite[] bosschebus;
     float bosstime;
     public bool delete = false;
     public bool kaisi = false;
     GameManager gamemanager;
     bosschebu bosschebu;
+    SpriteRenderer spriteRenderer;
     void Start()
     {
-        
+        spriteRenderer = boss.GetComponent<SpriteRenderer>();
     }
     void Update()
     {
-
+        if (chebukanti.chebukenin)
+        {
+            spriteRenderer.sprite = bosschebus[0];
+        }
+        else
+        {
+            spriteRenderer.sprite = bosschebus[1];
+        }
     }
   
 

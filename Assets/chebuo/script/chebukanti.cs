@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class chebukanti : MonoBehaviour
 {
-    bool chebukenin = false;
+    public static bool chebukenin = false;
     int chebuken = 0;
     public GameObject chebuspawner;
     ImageInstantiate imageinstantiate;

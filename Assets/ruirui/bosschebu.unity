@@ -1799,6 +1799,10 @@ MonoBehaviour:
   count: {fileID: 1256606746}
   KeyText: {fileID: 1693195892}
   healthgauge: {fileID: 1940018822}
+  boss: {fileID: 740417437}
+  bosschebus:
+  - {fileID: 21300000, guid: 7ed736cb82b334f459f9c913c863c70b, type: 3}
+  - {fileID: 21300000, guid: b02b31fb585e863449e443035025a7c2, type: 3}
   delete: 0
   kaisi: 0
 --- !u!1 &1161885951
@@ -3454,7 +3458,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 19.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1660057539 &9223372036854775807
