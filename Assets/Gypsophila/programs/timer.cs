@@ -1,57 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class timer : MonoBehaviour
-{
-    [SerializeField] int timeLimit;
-    [SerializeField] Text timerText;
-    float time;
-    private bool jouken;
-    [SerializeField] GameObject kaunto;//ƒeƒLƒXƒg‚ğ‚­‚Á‚Â‚¯‚Ä‚¢‚épanel‚ğ‚¢‚ê‚Ä
-    [SerializeField] Text KeyText;//ƒeƒLƒXƒg‚ğ‚¢‚ê‚Ä
-    //private AudioSource audioSource;
-    //private AudioClip se1;
-    //private AudioClip se2;
+public class timer1 : MonoBehaviour
 
+{
+    [SerializeField] int bosstimeLimit;
+    [SerializeField] Text bossTimerText;
+    [SerializeField] GameObject count;
+    [SerializeField] Text KeyText;
+    float bosstime;
+    bosschebu bosschebu;
     void Start()
     {
         StartCoroutine("CountDown");
+           
     }
     void Update()
     {
-        if (jouken == true)
-        {
-            time += Time.deltaTime;
-            int remaining = timeLimit - (int)time;
-            timerText.text = $"‚Ì‚±‚èF{remaining.ToString("D3")}•b";
+        bosstime += Time.deltaTime;
+        int remaining = bosstimeLimit - (int)bosstime;
+        bossTimerText.text = $"ã®ã“ã‚Šï¼š{remaining.ToString("D3")}ç§’";
+        if(remaining <= 0)
+    {
+            bossTimerText.text = "";
         }
     }
+  
 
     IEnumerator CountDown()
     {
         for (int v = 3; v >= 0; v--)
         {
-            kaunto.SetActive(true);
-            yield return new WaitForSeconds(1);//1•b‘Ò‚Â
+            count.SetActive(true);
             if (v != 0)
             {
                 KeyText.text = v.ToString();
-                //audioSource = gameObject.GetComponent<AudioSource>();@@‰¹Œ¹‚ª‚Å‚«‚½‚ç‚¢‚ê‚Ä
-                //audioSource.PlayOneShot(se4);
+                yield return new WaitForSeconds(1); //1ç§’å¾…ã¤
             }
             else
             {
-                //audioSource = gameObject.GetComponent<AudioSource>();
-                //audioSource.PlayOneShot(se5);
-                KeyText.text = ("çŒì").ToString();
+                KeyText.text = ("START").ToString();
                 yield return new WaitForSeconds(2);
-                kaunto.SetActive(false);
+                count.SetActive(false);
+                GameObject chebu = GameObject.Find("Chebu");
+                bosschebu = chebu.GetComponent<bosschebu>();
+                bosschebu.ugoke();
             }
-
         }
-        jouken = true;
+
         yield break;
     }
+
 }
+
+

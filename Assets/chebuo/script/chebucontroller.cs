@@ -63,20 +63,21 @@ public class chebucontroller : MonoBehaviour
         {
             HP+= attack;
         }
+        image.fillAmount = HP / MaxHP;
     }
     // Update is called once per frame
     void Update()
     {
-        //ƒJƒƒ‰‚Ì’†‰›‚ÌÀ•Wæ“¾
+        //ã‚«ãƒ¡ãƒ©ã®ä¸­å¤®ã®åº§æ¨™å–å¾—
         screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane);
-        /*ƒJƒƒ‰’†‰›‚Ìƒ[ƒ‹ƒhÀ•W
+        /*ã‚«ãƒ¡ãƒ©ä¸­å¤®ã®ãƒ¯ãƒ¼ãƒ«ãƒ‰åº§æ¨™
         worldposition=Camera.main.ScreenToWorldPoint(screenCenter);
         middleposx = worldposition.x;
         middleposy = worldposition.y;
         */
-        //©•ª©g‚ÌÀ•Wæ“¾
+        //è‡ªåˆ†è‡ªèº«ã®åº§æ¨™å–å¾—
         mepos = this.transform.position;
-        //’†‰›‚Éˆø‚«Šñ‚¹‚é
+        //ä¸­å¤®ã«å¼•ãå¯„ã›ã‚‹
         image.fillAmount = HP/MaxHP;
         Debug.Log(HP);
         if (random==1)
@@ -87,7 +88,7 @@ public class chebucontroller : MonoBehaviour
         {
             transform.position = Vector3.Slerp(transform.position, screenCenter, speed * Time.deltaTime);
         }
-        //ƒ‰ƒ“ƒ_ƒ€‚ÈˆÊ’u‚ğæ“¾
+        //ãƒ©ãƒ³ãƒ€ãƒ ãªä½ç½®ã‚’å–å¾—
         angle = Random.Range(0, 360);
         rad = angle * Mathf.Deg2Rad;
         rx = Mathf.Cos(rad) * r;

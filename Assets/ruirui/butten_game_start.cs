@@ -16,7 +16,7 @@ public class butten_game_start : MonoBehaviour
     // Update is called once per frame
     void osu()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("SampleScenes");
 
     }
 }

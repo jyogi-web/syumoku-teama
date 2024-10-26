@@ -1,11 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class HP : MonoBehaviour
+public class HealthGauge: MonoBehaviour
 {
-    [SerializeField] private Image healthImage;
+    [SerializeField] public Image healthImage;
     [SerializeField] private Image burnImage;
+    [SerializeField] private GameObject gameclear;
 
     public float duration = 0.5f;
     public float strength = 20f;
@@ -17,24 +20,26 @@ public class HP : MonoBehaviour
 
     private void Start()
     {
-        SetGauge(1f);
+        SetGauge(1.0f);
     }
 
-    public void SetGauge(float value)
+    public void SetGauge(float targetRate)
     {
-        // DoTween‚ð˜AŒ‹‚µ‚Ä“®‚©‚·
-        healthImage.DOFillAmount(value, duration)
-            .OnComplete(() =>
-            {
-                burnImage
-                    .DOFillAmount(value, duration / 2f)
-                    .SetDelay(0.5f);
-            });
-        transform.DOShakePosition(
-            duration / 2f,
-            strength, vibrate);
+        if(healthImage.fillAmount != 0)
+        {
+            // DoTween‚ð˜AŒ‹‚µ‚Ä“®‚©‚·
+            healthImage.DOFillAmount(targetRate, duration)
+                .OnComplete(() =>
+                {
+                    burnImage.DOFillAmount(targetRate, duration * 0.5f).SetDelay(0.5f);
+                });
+            transform.DOShakePosition(duration * 0.5f,
+                strength, vibrate);
 
-        currentRate = value;
+            currentRate = targetRate;
+
+        }
+
     }
 
     public void TakeDamage(float rate)
@@ -44,16 +49,10 @@ public class HP : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (healthImage.fillAmount == 0)
         {
-            TakeDamage(debugDamageRate);
-        }
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            transform.DOShakePosition(
-                duration / 2f,
-                strength, vibrate);
+            gameclear.SetActive(true);
+            Time.timeScale = 0f;   
         }
     }
 }
