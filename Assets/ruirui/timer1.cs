@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class bosstimer : MonoBehaviour
+public class timer1 : MonoBehaviour
 {
     [SerializeField] int timeLimit;
     [SerializeField] Text timerText;
@@ -14,4 +15,5 @@ public class bosstimer : MonoBehaviour
         int remaining = timeLimit - (int)time;
         timerText.text = $"ÇÃÇ±ÇËÅF{remaining.ToString("D3")}ïb";
     }
+    
 }

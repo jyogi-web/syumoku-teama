@@ -14,6 +14,7 @@ public class bosschebu : MonoBehaviour
         myRigidBody = this.gameObject.GetComponent<Rigidbody2D>();
         Vector2 force = new Vector2(speedx, speedy);
         myRigidBody.velocity = force;
+        myRigidBody.AddForce(force,ForceMode2D.Impulse);
     }
 
     // Update is called once per frame

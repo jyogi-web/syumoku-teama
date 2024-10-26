@@ -5,7 +5,7 @@ using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class timer1 : MonoBehaviour
+public class timer : MonoBehaviour
 
 {
     [SerializeField] int bosstimeLimit;
@@ -13,10 +13,11 @@ public class timer1 : MonoBehaviour
     [SerializeField] GameObject count;
     [SerializeField] Text KeyText;
     float bosstime;
+    public bool delete = false;
+    GameManager gamemanager;
     bosschebu bosschebu;
     void Start()
     {
-        StartCoroutine("CountDown");
            
     }
     void Update()
@@ -33,6 +34,8 @@ public class timer1 : MonoBehaviour
 
     IEnumerator CountDown()
     {
+        yield return new WaitForSeconds(1);
+
         for (int v = 3; v >= 0; v--)
         {
             count.SetActive(true);
