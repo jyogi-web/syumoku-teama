@@ -35,9 +35,6 @@ public class chebucontroller : MonoBehaviour
     int check2;
     ImageInstantiate imageinstantiate;
     public GameObject chebuspawner;
-    public GameObject chebutower;
-    //int constant = 6;
-    //public GameObject chebus;
     // Start is called before the first frame update
 
     public void OnClick()

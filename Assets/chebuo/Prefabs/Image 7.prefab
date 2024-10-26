@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b937acb1303a7944ca609e70ace075c6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ffa1036df82483c4cb44916c6eca968f, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -95,7 +95,9 @@ MonoBehaviour:
   speed: 2.5
   heal: 5
   attack: 13
+  bosschange: 0
   chebuspawner: {fileID: 5793296100382957745, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+  chebutower: {fileID: 0}
 --- !u!61 &614991098976912962
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -18,6 +18,10 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene("titlescene");
     }
+    public void LoadButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     // Update is called once per frame
     void Update()
     {
