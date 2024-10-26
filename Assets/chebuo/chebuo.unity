@@ -279,64 +279,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 82910996}
   m_CullTransparentMesh: 1
---- !u!1 &100670123
+--- !u!1 &100670123 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5793296100382957745, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+  m_PrefabInstance: {fileID: 7063828271223621138}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 100670125}
-  - component: {fileID: 100670126}
-  m_Layer: 0
-  m_Name: ChebuSpowner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &100670125
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100670123}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &100670126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100670123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c43764a0909af9b4e94aa773d7ff670c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chebu:
-  - {fileID: 6825660654485814008, guid: 0ae27ad5ac3627e45af6a005bfaec44f, type: 3}
-  - {fileID: 8204214453430053816, guid: 73abe898abb66e04490659cc0fff7fdd, type: 3}
-  - {fileID: 8204214453430053816, guid: 3e6ec2c1291d3804c914779b7ece8e63, type: 3}
-  - {fileID: 8204214453430053816, guid: 1f924734fc4923a438210eb78dcfdf18, type: 3}
-  - {fileID: 8204214453430053816, guid: ca47676e4a4349b42963eb89624e8263, type: 3}
-  - {fileID: 8204214453430053816, guid: 93c96ff5cc03e704d83e5e3dc2a6c247, type: 3}
-  Canvas: {fileID: 1632593029}
-  prefab: {fileID: 7739015788221510509, guid: b7fedded8c41d8c469367a18f2a7fc68, type: 3}
-  chebutower: {fileID: 832019760}
-  Timer: {fileID: 1000792366}
-  countdown: {fileID: 1159832154}
-  Finishscreen: {fileID: 81464565}
-  gauge: {fileID: 892232075}
 --- !u!1 &722276396
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +509,7 @@ GameObject:
   - component: {fileID: 832019762}
   - component: {fileID: 832019764}
   - component: {fileID: 832019765}
+  - component: {fileID: 832019766}
   m_Layer: 5
   m_Name: chebutower
   m_TagString: tower
@@ -698,6 +646,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &832019766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832019760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bd4aad482a7364eba7f9ca9851e4fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chebuspawner: {fileID: 100670123}
 --- !u!1 &892232075
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,7 +941,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 281ddcd7ba50fba488eee1b11ad712f9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 0.97
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -2349,6 +2310,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993764201}
   m_CullTransparentMesh: 1
+--- !u!1001 &7063828271223621138
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3581403729783481925, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581403729783481925, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581403729783481925, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581403729783481925, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581403729783481925, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581403729783481925, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581403729783481925, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581403729783481925, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581403729783481925, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581403729783481925, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793296100382957745, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+      propertyPath: m_Name
+      value: ChebuSpowner
+      objectReference: {fileID: 0}
+    - target: {fileID: 7564575722198720204, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+      propertyPath: Timer
+      value: 
+      objectReference: {fileID: 1000792366}
+    - target: {fileID: 7564575722198720204, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+      propertyPath: gauge
+      value: 
+      objectReference: {fileID: 892232075}
+    - target: {fileID: 7564575722198720204, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+      propertyPath: Canvas
+      value: 
+      objectReference: {fileID: 1632593029}
+    - target: {fileID: 7564575722198720204, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+      propertyPath: countdown
+      value: 
+      objectReference: {fileID: 1159832154}
+    - target: {fileID: 7564575722198720204, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+      propertyPath: chebutower
+      value: 
+      objectReference: {fileID: 832019760}
+    - target: {fileID: 7564575722198720204, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
+      propertyPath: Finishscreen
+      value: 
+      objectReference: {fileID: 81464565}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2356,6 +2398,6 @@ SceneRoots:
   - {fileID: 1628639532}
   - {fileID: 1632593033}
   - {fileID: 1942076194}
-  - {fileID: 100670125}
+  - {fileID: 7063828271223621138}
   - {fileID: 1000792365}
   - {fileID: 1434134539}

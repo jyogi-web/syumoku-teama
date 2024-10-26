@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -7297091268481969292}
   m_Layer: 5
   m_Name: Image 4
-  m_TagString: chebu
+  m_TagString: chebuken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,9 +92,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chebus: {fileID: 8204214453430053816}
-  speed: 2
+  speed: 2.25
   heal: 5
   attack: 20
+  bosschange: 0
+  chebuspawner: {fileID: 5793296100382957745, guid: 458ca98bdbb65fa4c8eed9f4d01b7e0a, type: 3}
 --- !u!61 &614991098976912962
 BoxCollider2D:
   m_ObjectHideFlags: 0
