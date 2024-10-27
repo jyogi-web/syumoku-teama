@@ -44,8 +44,11 @@ public class time : MonoBehaviour
             if (remaining <= 0)
             {
                 timerText.text = "";
-                ClearScene.SetActive(true);
-                chebuspawner.SetActive(false);
+                if (ImageInstantiate.make)
+                {
+                    ClearScene.SetActive(true);
+                    chebuspawner.SetActive(false);
+                }
             }
         }
        

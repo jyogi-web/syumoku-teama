@@ -48,6 +48,15 @@ public class chebucontroller : MonoBehaviour
         imageinstantiate = chebuspawner.GetComponent<ImageInstantiate>();
         speed = (float)Random.Range(speed,speed+1.5f);
         random = Random.Range(0, 2);
+        if (diffeclutcontroller.Hard)
+        {
+            speed += 1.2f;
+            attack *= 2;
+        }
+        if (diffeclutcontroller.Normal)
+        {
+            attack *= 1;
+        }
     }
 
     public void OnClick()

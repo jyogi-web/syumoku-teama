@@ -27,6 +27,7 @@ public class ImageInstantiate : MonoBehaviour
     [SerializeField] GameObject Finishscreen;
     [SerializeField] GameObject gauge;
     public static int chebuken = 0;
+    public static bool make=false;
     Image image;
     // Start is called before the first frame update
     void Start()
@@ -54,12 +55,19 @@ public class ImageInstantiate : MonoBehaviour
     }
     void FixedUpdate()
     {
-
-        constant = 4 - (int)chebucount / 3;
+        if (diffeclutcontroller.Normal)
+        {
+            constant = 4 - (int)chebucount / 3;
+        }
+        if (diffeclutcontroller.Hard)
+        {
+            constant = 3 - (int)chebucount / 3;
+        }
         if (image.fillAmount == 1)
         {
             constant = 0;
             Finishscreen.SetActive(true);
+            make = true;
         }
     }
 
@@ -72,11 +80,6 @@ public class ImageInstantiate : MonoBehaviour
             prefab = Instantiate(chebu[chebuIndex], new Vector3(rx, ry, 0f), Quaternion.identity);
             prefab.transform.SetParent(Canvas.transform, false);
             prefab.transform.SetParent(chebutower.transform, false);
-/*            if (chebuIndex != 4)
-            {
-                chebucounter++;
-                chebucheck++;
-            }*/
             if (chebuIndex == 4)
             {
                 chebuken++;
