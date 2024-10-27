@@ -27,7 +27,8 @@ public class ImageInstantiate : MonoBehaviour
     [SerializeField] GameObject Finishscreen;
     [SerializeField] GameObject gauge;
     public static int chebuken = 0;
-    public static bool make=false;
+    public  bool make=false;
+    public bool kati=false;
     Image image;
     // Start is called before the first frame update
     void Start()
@@ -51,7 +52,11 @@ public class ImageInstantiate : MonoBehaviour
         rx = Mathf.Cos(rad) * r;      //ラジアンをCOSにする
         ry = Mathf.Sin(rad) * r;      //ラジアンをSINにする
         time += Time.deltaTime;         //
-
+        Debug.Log(time);
+        if (make)
+        {
+            Finishscreen.SetActive(true);
+        }
     }
     void FixedUpdate()
     {
@@ -66,7 +71,6 @@ public class ImageInstantiate : MonoBehaviour
         if (image.fillAmount == 1)
         {
             constant = 0;
-            Finishscreen.SetActive(true);
             make = true;
         }
     }

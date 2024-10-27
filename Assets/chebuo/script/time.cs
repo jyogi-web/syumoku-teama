@@ -18,18 +18,21 @@ public class time : MonoBehaviour
     //private AudioClip se2;
     Text text;
     public GameObject ClearScene;
+    ImageInstantiate imageinstantiate;
     [SerializeField] GameObject chebuspawner;
     public bool isGame = false;
     void Start()
     {
+        imageinstantiate = chebuspawner.GetComponent<ImageInstantiate>();
         audioSource = gameObject.GetComponent<AudioSource>();Å@Å@//âπåπÇ™Ç≈Ç´ÇΩÇÁÇ¢ÇÍÇƒ
         text =KeyText.GetComponent<Text>();
         StartCoroutine("CountDown");
         ClearScene.SetActive(false);
+
     }
     void Update()
     {
-        if (jouken == true)
+        if (jouken)
         {
             timer += Time.deltaTime;
             remaining = timeLimit - (int)timer;
@@ -43,15 +46,18 @@ public class time : MonoBehaviour
             }
             if (remaining <= 0)
             {
-                timerText.text = "";
-                if (ImageInstantiate.make)
+                timerText.enabled = false;
+                if (!imageinstantiate.make)
                 {
-                    ClearScene.SetActive(true);
-                    chebuspawner.SetActive(false);
+                    imageinstantiate.kati = true;
                 }
             }
         }
-       
+        if (imageinstantiate.kati)
+        {
+            ClearScene.SetActive(true);
+            chebuspawner.SetActive(false);
+        }
     }
     IEnumerator CountDown()
     {
@@ -62,8 +68,10 @@ public class time : MonoBehaviour
             kaunto.SetActive(true);           
             if (v != 0)
             {
-                KeyText.text = "--" + v.ToString()+"--" ;                
+                KeyText.text = "--" + v.ToString()+"--" ; 
+                
                 yield return new WaitForSeconds(1);//1ïbë“Ç¬
+
             }
             else
             {
@@ -71,9 +79,12 @@ public class time : MonoBehaviour
                 //audioSource.PlayOneShot(se5);
                 KeyText.text = ("éÁåÏ").ToString();
                 isGame=true;
-                yield return new WaitForSeconds(1);
+                yield return null;
+                
                 text.enabled=false;
+                Debug.Log("jouken1");
                 jouken = true;
+                Debug.Log("jouken2");
                 yield break;
             }
         }
