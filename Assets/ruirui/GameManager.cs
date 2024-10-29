@@ -20,56 +20,54 @@ public class GameManager : MonoBehaviour
     {
         serifutext= GetComponent<Text>();
     }
-    void Update()
+    void FixedUpdate()
     {
-            if (textStop == false) //テキストを表示させるif文
+        if (textStop == false) //テキストを表示させるif文
+        {
+            displayTextSpeed++;
+            if (displayTextSpeed % 13 == 0)//7s��Ɉ��v���O���������s����if��
             {
-                displayTextSpeed++;
-                if (displayTextSpeed % 13 == 0)//7s��Ɉ��v���O���������s����if��
+                if (textCharNumber < texts[textNumber].Length)//もしtext[textNumber]の文字列の文字が最後の文字じゃなければ
                 {
-                    if (textCharNumber != texts[textNumber].Length)//もしtext[textNumber]の文字列の文字が最後の文字じゃなければ
+                    displayText = displayText + texts[textNumber][textCharNumber];//displayTextに文字を追加していく
+                    textCharNumber++;//次の文字にする         
+                }
+                else//もしtext[textNumber]の文字列の文字が最後の文字だったら
+                {
+                    if (click==true)//クリックされた判定
                     {
-                        displayText = displayText + texts[textNumber][textCharNumber];//displayTextに文字を追加していく
-                        textCharNumber = textCharNumber + 1;//次の文字にする
+                        displayText="";//表示させる文字列を消す
+                        textCharNumber = 0;//文字の番号を最初にする
+                        textNumber =1;//次のセリフにする
                     }
-                    else//もしtext[textNumber]の文字列の文字が最後の文字だったら
+                    else //もしtexts[]が最後のセリフになったら
                     {
-                        if (click == true)//クリックされた判定
-                        {
-                            displayText = "";//表示させる文字列を消す
-                            textCharNumber = 0;//文字の番号を最初にする
-                            textNumber = textNumber + 1;//次のセリフにする
+                        if (isSelifuEnd)
+                        {                             
+                            GameObject startcount = GameObject.Find("Startcount");
+                            timer timer = startcount.GetComponent<timer>();
+                            timer.StartCoroutine("CountDown");                              
+                            isSelifuEnd = false;
                         }
-                        else //もしtexts[]が最後のセリフになったら
+                        count1second += Time.deltaTime;
+
+                        //Debug.Log(count1second);
+                        if (count1second >= 0.15)
                         {
-                            if (isSelifuEnd) {
-                                
-                                GameObject startcount = GameObject.Find("Startcount");
-                                timer timer = startcount.GetComponent<timer>();
-                                timer.StartCoroutine("CountDown");
-                                
-                                isSelifuEnd = false;
-                            }
-                            count1second += Time.deltaTime;
-
-                            Debug.Log(count1second);
-                            if (count1second >= 0.15)
-                            {
-                                serifutext.enabled = false;
-                                //displayText = ""; //表示させる文字列も消す
-                                textCharNumber = 0; //文字の番号を最初にする
-                                textStop = true; //セリフ表示を止める
-                            }
+                            serifutext.enabled = false;
+                            //displayText = ""; //表示させる文字列も消す
+                            textCharNumber = 0; //文字の番号を最初にする
+                            textStop = true; //セリフ表示を止める
+                        }
                     }
-                    }
-
-                    this.GetComponent<Text>().text = displayText;//画面上にdisplayTextを表示
-                    click = false;//クリックされた判定を解除
                 }
-                if (Input.GetMouseButton(0))//マウスをクリックしたら
-                {
-                    click = true; //クリックされた判定にする
-                }
+                this.GetComponent<Text>().text = displayText;//画面上にdisplayTextを表示
+                click = false;//クリックされた判定を解除
             }
+            if (Input.GetMouseButton(0))//マウスをクリックしたら
+            {
+                click = true; //クリックされた判定にする
+            }
+        }
     }
 }

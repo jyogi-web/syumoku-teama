@@ -29,6 +29,7 @@ public class ImageInstantiate : MonoBehaviour
     public static int chebuken = 0;
     public  bool make=false;
     public bool kati=false;
+    public bool start=false;
     Image image;
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,7 @@ public class ImageInstantiate : MonoBehaviour
         StartCoroutine("ImageInstantiater");
         Finishscreen.SetActive(false);
         chebucount = 0;
-        chebuken=0;
+        chebuken=0;Debug.Log("start");
     }
     // Update is called once per frame
     void Update()
@@ -51,7 +52,7 @@ public class ImageInstantiate : MonoBehaviour
         rad = angle * Mathf.Deg2Rad;  //ラジアンにする
         rx = Mathf.Cos(rad) * r;      //ラジアンをCOSにする
         ry = Mathf.Sin(rad) * r;      //ラジアンをSINにする
-        time += Time.deltaTime;         //
+        time += Time.deltaTime;       //
         Debug.Log(time);
         if (make)
         {
@@ -66,7 +67,7 @@ public class ImageInstantiate : MonoBehaviour
         }
         if (diffeclutcontroller.Hard)
         {
-            constant = 4 - (int)chebucount / 2.75f;
+            constant = 3 - (int)chebucount / 3.25f;
         }
         if (image.fillAmount == 1)
         {

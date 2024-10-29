@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class click : MonoBehaviour
 {
-    float debugDamageRate = 0.1f;
+    float debugDamageRate = 1f;
     //クリックされたときに呼び出されるメソッド
     // public void OnPointerClick(PointerEventData eventData)
     // {

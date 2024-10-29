@@ -42,6 +42,7 @@ public class chebucontroller : MonoBehaviour
     
     void Start()
     {
+        Debug.Log("chebustart");
         audiosource=this.GetComponent<AudioSource>();
         gauge = GameObject.Find("bar");
         image = gauge.GetComponent<Image>();
