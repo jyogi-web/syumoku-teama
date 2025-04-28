@@ -18,7 +18,6 @@ public class chebukanti : MonoBehaviour
         if (col.gameObject.CompareTag("chebuken"))
         {
             chebuken++;Debug.Log(chebuken);
-           
         }
     }
     // Update is called once per frame

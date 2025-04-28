@@ -7,16 +7,9 @@ using UnityEngine.SceneManagement; //ƒV[ƒ“Ø‚è‘Ö‚¦
 
 public class StartScene : MonoBehaviour
 {
-    public Button button;
     // Start is called before the first frame update
-    void Start()
-    {
-        button = this.GetComponent<Button>();
-        button.onClick.AddListener(osu);
-    }
-
     // Update is called once per frame
-    void osu()
+    public void osu()
     {
         chebucontroller.HP =0;
         SceneManager.LoadScene("chebuo");

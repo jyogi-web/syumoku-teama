@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,13 +33,9 @@ public class HealthGauge: MonoBehaviour
                 {
                     burnImage.DOFillAmount(targetRate, duration * 0.5f).SetDelay(0.5f);
                 });
-            transform.DOShakePosition(duration * 0.5f,
-                strength, vibrate);
-
+            transform.DOShakePosition(duration * 0.5f, strength, vibrate);
             currentRate = targetRate;
-
         }
-
     }
 
     public void TakeDamage(float rate)
@@ -55,4 +51,4 @@ public class HealthGauge: MonoBehaviour
             Time.timeScale = 0f;   
         }
     }
-}
+}*/

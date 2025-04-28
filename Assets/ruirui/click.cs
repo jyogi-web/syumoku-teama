@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,10 +11,12 @@ public class click : MonoBehaviour
     // {
     //     Debug.Log($"オブジェクト{name}がクリックされたよ！");
     //}
+    //HealthGauge hpgauge;
+    public GameObject hp;
     // Start is called before the first frame update
     void Start()
     {
-        
+        hpgauge = hp.GetComponent<HealthGauge>();
     }
 
     // Update is called once per frame
@@ -24,8 +26,8 @@ public class click : MonoBehaviour
     }
     public void clickd()
     {
-        GameObject hp = GameObject.Find("HealthGauge");
-        HealthGauge hpgauge = hp.GetComponent<HealthGauge>();
+        
         hpgauge.TakeDamage(debugDamageRate);
     }
 }
+*/

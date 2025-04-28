@@ -67,7 +67,7 @@ public class ImageInstantiate : MonoBehaviour
         }
         if (diffeclutcontroller.Hard)
         {
-            constant = 3 - (int)chebucount / 3.25f;
+            constant = 2.5f;
         }
         if (image.fillAmount == 1)
         {

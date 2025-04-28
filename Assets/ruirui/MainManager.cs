@@ -12,7 +12,7 @@ public class MainManager : MonoBehaviour
     [SerializeField] int timeLimit;
     [SerializeField] Text timerText;
     float time;
-    int remaining = 999;
+    public int remaining = 999;
     timer timer;
     // Start is called before the first frame update
     private void Start()
@@ -30,7 +30,7 @@ public class MainManager : MonoBehaviour
             {
                 time += Time.deltaTime;
                 remaining = timeLimit - (int)time;
-                timerText.text = $"ÇÃÇ±ÇËÅF{remaining.ToString("D3")}ïb";
+                timerText.text = $"ÇÃÇ±ÇËÅF{remaining.ToString("D2")}ïb";
             }
         }
         else if (remaining <= 0) 

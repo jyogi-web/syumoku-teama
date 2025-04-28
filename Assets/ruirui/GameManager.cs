@@ -16,12 +16,15 @@ public class GameManager : MonoBehaviour
     float count1second = 0; //1秒間数える
     public GameObject serifu;
     public Text serifutext;
+    bool nexttext=false;
     void Start()
     {
         serifutext= GetComponent<Text>();
     }
     void FixedUpdate()
     {
+        Debug.Log("textNumber"+textNumber);
+        Debug.Log("textCharNumber"+textCharNumber);
         if (textStop == false) //テキストを表示させるif文
         {
             displayTextSpeed++;
@@ -30,17 +33,20 @@ public class GameManager : MonoBehaviour
                 if (textCharNumber < texts[textNumber].Length)//もしtext[textNumber]の文字列の文字が最後の文字じゃなければ
                 {
                     displayText = displayText + texts[textNumber][textCharNumber];//displayTextに文字を追加していく
-                    textCharNumber++;//次の文字にする         
+                    //if (textCharNumber < texts[textCharNumber].Length)
+                    {
+                        textCharNumber++;//次の文字にする
+                    }
                 }
                 else//もしtext[textNumber]の文字列の文字が最後の文字だったら
                 {
-                    if (click==true)//クリックされた判定
+                    //if (click==true)//クリックされた判定
                     {
                         displayText="";//表示させる文字列を消す
-                        textCharNumber = 0;//文字の番号を最初にする
-                        textNumber =1;//次のセリフにする
+                        //textCharNumber = 0;//文字の番号を最初にする
+                        nexttext =true;//次のセリフにする
                     }
-                    else //もしtexts[]が最後のセリフになったら
+                    if(nexttext) //もしtexts[]が最後のセリフになったら
                     {
                         if (isSelifuEnd)
                         {                             
@@ -48,6 +54,7 @@ public class GameManager : MonoBehaviour
                             timer timer = startcount.GetComponent<timer>();
                             timer.StartCoroutine("CountDown");                              
                             isSelifuEnd = false;
+                            
                         }
                         count1second += Time.deltaTime;
 
